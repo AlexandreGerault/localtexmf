@@ -1,0 +1,32 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{exercices}[2018/09/16 Exercices writing Package]
+
+
+\ProcessOptions\relax
+
+%% Traditional LaTeX or TeX follows...
+% ...
+
+\newcounter{exercicecompteur}
+\setcounter{exercicecompteur}{1}
+
+\newcounter{questioncompteur}[section]
+\setcounter{questioncompteur}{1}
+
+\newcommand{\exercice}[1] {
+ \setcounter{questioncompteur}{0} 
+\vspace{0.5cm}
+\noindent{\large\textbf{Exercice \theexercicecompteur.} #1}
+\vspace{0.2cm}
+\stepcounter{exercicecompteur}
+}
+
+\newcommand{\question}[1] {
+\stepcounter{questioncompteur}
+\vspace{0.5cm}
+\noindent{\textbf{\thequestioncompteur}. } {#1}
+\vspace{0.2cm}
+}
+% ...
+
+\endinput

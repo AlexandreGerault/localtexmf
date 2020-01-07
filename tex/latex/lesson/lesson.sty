@@ -1,0 +1,130 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{lesson}[2018/09/16 Lesson writing Package]
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathrsfs}
+
+\ProcessOptions\relax
+
+%% Traditional LaTeX or TeX follows...
+% ...
+
+\theoremstyle{definition}
+\newtheorem{definition}{Définition}
+
+\theoremstyle{remark}
+\newtheorem{remarque}{Remarque}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Théorème}
+
+\theoremstyle{definition}
+\newtheorem{properties}{Propriétés}
+
+%partie réelle d'un complexe
+\renewcommand{\Re}{\operatorname{\mathfrak{Re}}}
+
+%partie imaginaire d'un complexe
+\renewcommand{\Im}{\operatorname{\mathfrak{Im}}}
+
+\DeclareMathOperator{\e}{e}
+\DeclareMathOperator\Arg{Arg}
+
+\newcommand{\diff}[1] {\ensuremath{\mathrm{d}#1}}
+\newcommand{\ddiff}[1] {\ensuremath{\mathrm{d}^2#1}}
+
+\newcommand{\repdd[3]}
+{\ensuremath{
+
+	\left(
+		#1\mathpunct{};
+		\vec{#2}\mathpunct{},
+		\vec{#3}
+	\right)
+}}
+
+\newcommand{\repddd[4]}
+{\ensuremath{
+	\left(
+		#1\mathpunct{};
+		\vec{#2}\mathpunct{},
+		\vec{#3}\mathpunct{},
+		\vec{#4}~
+	\right)
+}}
+
+\newcommand*{\coord}[3]{% 
+    \ensuremath{ 
+    \begin{pmatrix} 
+        #1\\ 
+        #2\\
+        #3
+    \end{pmatrix}
+}}
+
+%Boxed environments
+
+\newsavebox{\mybox}
+\newenvironment{bdef}[1][\unskip]
+{
+	\begin{lrbox}{\mybox}
+	\begin{minipage}{\textwidth}
+	\begin{definition}#1
+	
+}
+{
+	\end{definition}
+	\end{minipage}
+	\end{lrbox}
+	\vskip 1em
+	\noindent
+	\fbox{\usebox{\mybox}}
+	\vskip 1em
+}
+
+\newenvironment{bprop}[1][\unskip]
+{
+	\begin{lrbox}{\mybox}
+	\begin{minipage}{\textwidth}
+	\begin{properties}#1
+	
+}
+{
+	\end{properties}
+	\end{minipage}
+	\end{lrbox}
+	\vskip 1em
+	\noindent
+	\fbox{\usebox{\mybox}}
+	\vskip 1em
+}
+
+\newenvironment{btheorem}[1][\unskip]
+{
+	\begin{lrbox}{\mybox}
+	\begin{minipage}{\textwidth}
+	\begin{theorem}#1
+	
+}
+{
+	\end{theorem}
+	\end{minipage}
+	\end{lrbox}
+	\vskip 1em
+	\noindent
+	\fbox{\usebox{\mybox}}
+	\vskip 1em
+}
+
+% ...
+
+\newenvironment{importantbox}{%
+  \def\FrameCommand{\fboxsep=\FrameSep \fcolorbox{\color{red}}{\color{white}}}%
+  \color{black}\MakeFramed {\FrameRestore}
+}%
+{\endMakeFramed}
+
+\endinput
+
