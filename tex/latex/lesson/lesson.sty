@@ -31,9 +31,13 @@
 
 \DeclareMathOperator{\e}{e}
 \DeclareMathOperator\Arg{Arg}
+\DeclareMathOperator\Div{div}
+\DeclareMathOperator\rot{rot}
 
 \newcommand{\diff}[1] {\ensuremath{\mathrm{d}#1}}
 \newcommand{\ddiff}[1] {\ensuremath{\mathrm{d}^2#1}}
+\newcommand{\dddiff}[1] {\ensuremath{\mathrm{d}^3#1}}
+
 
 \newcommand{\repdd[3]}
 {\ensuremath{
@@ -116,6 +120,14 @@
 	\noindent
 	\fbox{\usebox{\mybox}}
 	\vskip 1em
+}
+
+\newenvironment{conclusion}
+{
+    \color{red}
+	\textbf{Conclusion.}
+}
+{
 }
 
 % ...

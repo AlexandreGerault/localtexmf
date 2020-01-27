@@ -23,6 +23,8 @@
 \usepackage{fourier-orns}
 \usepackage{blindtext}
 \usepackage{float}
+\usepackage{esint}
+\usepackage[xindy]{glossaries}
 \usepgfplotslibrary{units}
 
 %Signe danger
@@ -68,19 +70,21 @@
   extendedchars=true
 }
 
-\tikzset{oplus/.style={path picture={%
-	\draw[black]
-	(path picture bounding box.south west) -- (path picture bounding box.north east)
-	(path picture bounding box.north west) -- (path picture bounding box.south east);
+\tikzset{
+  oplus/.style={path picture={%
+	  \draw[black]
+    (path picture bounding box.south west) -- (path picture bounding box.north east)
+    (path picture bounding box.north west) -- (path picture bounding box.south east);
 }}} 
 
 
 \tikzset{ 
-xmin/.store in=\xmin, xmin/.default=-3, xmin=-3, 
-xmax/.store in=\xmax, xmax/.default=3, xmax=3, 
-ymin/.store in=\ymin, ymin/.default=-3, ymin=-3, 
-ymax/.store in=\ymax, ymax/.default=3, ymax=3, 
-} 
+  xmin/.store in=\xmin, xmin/.default=-3, xmin=-3, 
+  xmax/.store in=\xmax, xmax/.default=3, xmax=3, 
+  ymin/.store in=\ymin, ymin/.default=-3, ymin=-3, 
+  ymax/.store in=\ymax, ymax/.default=3, ymax=3, 
+}
+
 % Commande qui trace la grille entre (xmin,ymin) et (xmax,ymax) 
 \newcommand {\grille} 
 {\draw[help lines] (\xmin,\ymin) grid (\xmax,\ymax);} 
@@ -104,6 +108,6 @@ ymax/.store in=\ymax, ymax/.default=3, ymax=3,
     }
 }
  
-\usetikzlibrary{3d,arrows,babel,decorations.pathmorphing,patterns,backgrounds,positioning,fit,petri}
+\usetikzlibrary{3d,arrows,arrows.meta,babel,decorations.markings,decorations.pathmorphing,decorations.shapes,patterns,backgrounds,positioning,fit,petri}
 %\SIstyle{German}
 \selectlanguage{french}
